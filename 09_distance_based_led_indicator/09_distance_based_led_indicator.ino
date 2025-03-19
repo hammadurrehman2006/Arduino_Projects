@@ -9,8 +9,9 @@ unsigned long ultrasonicTriggerDelay = 100;
 
 volatile unsigned long pulseTimeIn;
 volatile unsigned long pulseTimeOut;
-
 volatile bool newDistAvailable = false;
+
+double prevDistance = 400.0;
 
 void triggerUltrasonicSensor() {
   digitalWrite(TRIGGER_PIN, LOW);
@@ -22,7 +23,12 @@ void triggerUltrasonicSensor() {
 
 double getUltrasonicDistance() {
   double durationMicros = pulseTimeOut - pulseTimeIn;
-  double distance = durationMicros / 58.0;  // cm (148.0: inches)
+  double distance = durationMicros / 58.0;
+  if(distance > 400.0){
+    return prevDistance;
+  }
+  distance = prevDistance * 0.5 + distance * 0.5;
+  prevDistance = distance;
   return distance;
 }
 
