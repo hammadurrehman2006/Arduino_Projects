@@ -1,6 +1,6 @@
-# define Led1 3
-# define Led2 5
-# define Led3 9
+# define Led1 10
+# define Led2 11
+# define Led3 12
 void setup() {
   pinMode(Led1,OUTPUT);
   pinMode(Led2,OUTPUT);

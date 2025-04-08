@@ -1,6 +1,6 @@
-#define LED_1 3
-#define LED_2 5
-#define LED_3 9
+#define LED_1 10
+#define LED_2 11
+#define LED_3 12
 #define LED_ARRAY_SIZE 3
 
 #define BUTTON 11
